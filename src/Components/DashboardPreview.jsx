@@ -1,4 +1,6 @@
-import React from 'react';
+import unnamed from '../assets/unnamed.png';
+import Serenity from '../assets/Serenity.png';
+import Optimising from '../assets/Optimising_Workflow.png';
 
 const SidebarLink = ({ icon, label, active }) => (
   <div className={`flex items-center gap-3 px-4 py-3 rounded-lg cursor-pointer transition-colors ${active ? 'bg-white/5 text-white' : 'text-[#888888] hover:text-white'}`}>
@@ -10,9 +12,9 @@ const SidebarLink = ({ icon, label, active }) => (
 const DashboardPreview = () => {
   
   const contentItems = [
-    { id: 1, title: 'How to Build a Content System', status: 'Drafted', time: '2h ago' , img: '../assets/unnamed.png'},
-    { id: 2, title: 'The Future of Content Creation', status: 'Published', time: '1d ago' , img: '../assets/Serenity.png'},
-    { id: 3, title: '10 Tips for Better Writing', status: 'Scheduled', time: '3d ago' , img: '../assets/Optimising_Workflow.png'},
+    { id: 1, title: 'How to Build a Content System', status: 'Drafted', time: '2h ago' , img: unnamed},
+    { id: 2, title: 'The Future of Content Creation', status: 'Published', time: '1d ago' , img: Serenity},
+    { id: 3, title: '10 Tips for Better Writing', status: 'Scheduled', time: '3d ago' , img: Optimising},
   ];
   
   return (
@@ -55,7 +57,7 @@ const DashboardPreview = () => {
                 </div>
                  
                  <div className="p-5">
-                    <div className="h-4 w-3/4 bg-white/10 rounded mb-4">{i.title}</div>
+                    <div className="h-4 w-full text-wrap rounded mb-4 text-left text-[14px]">{i.title}</div>     
                     <div className="flex justify-between items-center opacity-50">
                        <span className="text-[10px] uppercase">{i.status}</span>
                        <span className="text-[10px] uppercase">{i.time}</span>
