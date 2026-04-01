@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import unnamed from '../assets/unnamed.png';
 import Serenity from '../assets/Serenity.png';
 import Optimising from '../assets/Optimising_Workflow.png';
@@ -5,7 +6,7 @@ import Optimising from '../assets/Optimising_Workflow.png';
 const SidebarLink = ({ icon, label, active }) => (
   <div className={`flex items-center gap-3 px-4 py-3 rounded-lg cursor-pointer transition-colors ${active ? 'bg-white/5 text-white' : 'text-[#888888] hover:text-white'}`}>
     <span className="material-icons text-sm">{icon}</span>
-    <span className="text-sm font-medium">{label}</span>
+    <span className="hidden md:inline text-sm font-medium">{label}</span>
   </div>
 );
 
@@ -23,22 +24,23 @@ const DashboardPreview = () => {
         <h2 className="text-5xl font-bold mb-4">Designed for Focus</h2>
         <p className="text-[#888888]">A workspace that disappears, leaving only you and your creative vision.</p>
       </div>
-      <div className="max-w-6xl mx-auto bg-[#131313] rounded-3xl border border-white/5 overflow-hidden flex h-[600px] shadow-2xl">
+
+      <div className="max-w-6xl mx-auto bg-[#131313] rounded-3xl border border-white/5 overflow-hidden flex flex-col md:flex-row h-auto md:h-[600px] shadow-2xl">
         {/* Sidebar */}
-        <aside className="w-64 border-r border-white/5 flex flex-col p-8 bg-[#1B1B1B]">
-           <div className="mb-12">
+        <div className="w-full md:w-64 border-b md:border-r border-white/5 flex flex-row justify-between items-center p-4 md:flex-col md:p-8 bg-[#1B1B1B]">
+           <div className="hidden md:block mb-12">
              <p className="text-xs font-black uppercase tracking-widest opacity-40">Editorial</p>
            </div>
-           <div className="space-y-2 flex-grow">
+           <div className="flex flex-row gap-4 md:flex-col md:space-y-2">
              <SidebarLink icon="description" label="Pages" active />
              <SidebarLink icon="images" label="Media" />
              <SidebarLink icon="analytics" label="Analytics" />
              <SidebarLink icon="settings" label="Settings" />
            </div>
-           <button className="w-full bg-white/10 hover:bg-white/20 text-white text-xs uppercase tracking-widest font-bold py-3 rounded transition-all">
+           <button className="bg-white/10 hover:bg-white/20 text-white text-xs uppercase tracking-widest font-bold py-2 px-4 md:py-3 md:w-full rounded transition-all">
              New Post
            </button>
-        </aside>
+        </div>
         
         {/* Content */}
         <main className="flex-grow p-12 overflow-y-auto">
